@@ -578,17 +578,22 @@ This module allow we authenticate with kintone app by password authenticator or 
 <details class="tab-container" open>
 <Summary>Init authentication module</Summary>
 
-** Javascript **
+<strong>Javascript</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:0
+    var kintoneAuth = new kintoneJSSDK.Auth();
 
+</pre>
 
-** Nodejs **
+<strong>Nodejs</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:1
+    const kintone = require('kintone-js-sdk');
+    let kintoneAuth = new kintone.Auth();
 
+</pre>
 
 </details>
 
@@ -628,17 +633,25 @@ This module allow we authenticate with kintone app by password authenticator or 
 <details class="tab-container" open>
 <Summary>Set password authentication</Summary>
 
-** Javascript **
+<strong>Javascript</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:2
+    var username = '{your_user_name}';
+    var password = '{your_password}';
+    kintoneAuth.setPasswordAuth(username, password);
 
+</pre>
 
-** Nodejs **
+<strong>Nodejs</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:3
+    let username = '{your_user_name}';
+    let password = '{your_password}';
+    kintoneAuth.setPasswordAuth(username, password);
 
+</pre>
 
 </details>
 
@@ -670,17 +683,23 @@ This module allow we authenticate with kintone app by password authenticator or 
 <details class="tab-container" open>
 <Summary>Set APIToken authentication</Summary>
 
-** Javascript **
+<strong>Javascript</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:4
+    var apiToken = '{your_token}';
+    kintoneAuth.setApiToken(apiToken);
 
+</pre>
 
-** Nodejs **
+<strong>Nodejs</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:5
+    let apiTokenString = '{your_token}';
+    kintoneAuth.setApiToken(apiTokenString);
 
+</pre>
 
 </details>
 
@@ -719,16 +738,24 @@ This module allow we authenticate with kintone app by password authenticator or 
 <details class="tab-container" open>
 <Summary>Set basic authentication</Summary>
 
-** Javascript **
+<strong>Javascript</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:6
+    var username = '{your_user_name}';
+    var password = '{your_password}';
+    kintoneAuth.setBasicAuth(username, password);
 
-** Nodejs **
+</pre>
+<strong>Nodejs</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:7
+    let username = '{your_user_name}';
+    let password = '{your_password}';
+    kintoneAuth.setBasicAuth(username, password);
 
+</pre>
 
 </details>
                 

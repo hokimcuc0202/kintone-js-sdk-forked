@@ -588,28 +588,56 @@
 <details class="tab-container" open>
 <Summary>Get app with error response</Summary>
 
-** Javascript **
+<strong>Javascript</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:0
+    var appID = {your_invalid_app_id};
+    kintoneApp.getApp(appID).catch((err) => {
+    // This SDK return err with KintoneAPIExeption
+    console.log(err.get());
+    });
 
+</pre>
 
-** Nodejs **
+<strong>Nodejs</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:1
+    let appID = {your_invalid_app_id};
+    kintoneApp.getApp(appID).catch((err) => {
+    // This SDK return err with KintoneAPIExeption
+    console.log(err.get());
+    });
 
+</pre>
 
-** Response **
+<strong>Response</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:2
+    {
+        "message":"{kintone_error_message}",
+        "id":"kintone_error_id",
+        "code":"{kintone_error_code}"
+    }
+    // In the some case, the kintone Rest API will response with detail errors
+    {
+        "message":"{kintone_error_message}",
+        "id":"kintone_error_id",
+        "code":"{kintone_error_code}",
+        "errors": [
+            /*errors items here*/
+        ]
 
+    }
+
+</pre>
 
 </details>
 
 <h3 id="getall">getAll()</h3>
-<p><strong>Parameter </strong></p>
+<p><strong>Parameter</strong></p>
 <p>(none)</p>
 <p><strong>Return</strong></p>
 <p>The result of Promise.Reject()</p>
@@ -617,17 +645,30 @@
 <details class="tab-container" open>
 <Summary>Get apps with error response</Summary>
 
-** Javascript **
+<strong>Javascript</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:3
+    var appID = {your_invalid_app_id};
+    kintoneApp.getApp(appID).catch((err) => {
+    // This SDK return err with KintoneAPIExeption
+    console.log(err.getAll());
+    });
 
+</pre>
 
-** Nodejs **
+<strong>Nodejs</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:4
+    let appID = {your_invalid_app_id};
+    kintoneApp.getApp(appID)
+        .catch((err) => {
+            // This SDK return err with KintoneAPIExeption
+            console.log(err.getAll());
+        });
 
+</pre>
 
 </details>
 
@@ -635,7 +676,7 @@
 <blockquote>
 <p>This function will throw result of <a href="#get">get()</a> function</p>
 </blockquote>
-<p><strong>Parameter </strong></p>
+<p><strong>Parameter</strong></p>
 <p>(none)</p>
 <p><strong>Return</strong></p>
 <p>(none)</p>

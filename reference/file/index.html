@@ -588,17 +588,22 @@
 <details class="tab-container" open>
 <Summary>Init app sample</Summary>
 
-** Javascript **
+<strong>Javascript</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:0
+  var kintoneFile = new kintoneJSSDK.File(connection);
 
+</pre>
 
-** Nodejs **
+<strong>Nodejs</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:1
+  const kintone = require('kintone-js-sdk');
+  let kintoneFile = new kintone.File(connection);
 
+</pre>
 
 </details>
 
@@ -644,17 +649,35 @@
 <details class="tab-container" open>
 <Summary>Upload file sample</Summary>
 
-** Javascript **
+<strong>Javascript</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:2
+  var fileBlob = 'your_file_blob';
+  var fileName = 'your_file_name';
+  kintoneFile.upload(fileName, fileBlob).then((rsp) => {
+    console.log(rsp);
+  }).catch((err) => {
+    // This SDK return err with KintoneAPIExeption
+    console.log(err.get());
+  });
 
+</pre>
 
-** Nodejs **
+<strong>Nodejs</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:3
+  const fileContent = fs.createReadStream('./cd.png');
+  const fileName = path.basename('./cd.png');
+  kintoneFile.upload(fileName, fileContent).then((rsp) => {
+    console.log(rsp);
+  }).catch((err) => {
+    // This SDK return err with KintoneAPIExeption
+    console.log(err.get());
+  });
 
+</pre>
 
 </details>
 
@@ -693,17 +716,32 @@
 <details class="tab-container" open>
 <Summary>Get apps sample</Summary>
 
-** Javascript **
+<strong>Javascript</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:4
+  var fileKey = 'your_file_Key';
+  kintoneFile.download(fileKey).then(rsp => {
+    console.log(rsp);
+  }).catch((err) => {
+    // This SDK return err with KintoneAPIExeption
+    console.log(err.get());
+  });
 
+</pre>
 
-** Nodejs **
+<strong>Nodejs</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:5
+  const fileKey = 'your_file_Key';
+  const outPutFilePath = 'your_output_directory';
+  kintoneFile.download(fileKey, outPutFilePath).catch((err) => {
+    // This SDK return err with KintoneAPIExeption
+    console.log(err.get());
+  });
 
+</pre>
 
 </details>
 

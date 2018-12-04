@@ -764,17 +764,22 @@
 <details class="tab-container" open>
 <Summary>Init bulk request module</Summary>
 
-** Javascript **
+<strong>Javascript</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:0
+  var kintoneBulkRequest = new kintoneJSSDK.BulkRequest(connection);
 
+</pre>
 
-** Nodejs **
+<strong>Nodejs</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:1
+  const kintone = require('kintone-js-sdk');
+  let kintoneBulkRequest = new kintone.BulkRequest(connection);
 
+</pre>
 
 </details>
 
@@ -844,17 +849,49 @@
 <details class="tab-container" open>
 <Summary>Execute bulk request</Summary>
 
-** Javascript **
+<strong>Javascript</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:2
+  var responseBulkRequest = kintoneBulkRequest
+    .addRecord(/*[Args]*/)
+    .addRecords(/*[Args]*/)
+    .updateRecords(/*[Args]*/)
+    .deleteRecords()
+    .execute();
 
+  responseBulkRequest.then((resp) => {
+    console.log(resp);
+  }).catch((err) => {
+    // write error to console
+    console.log(err.get());
+    // Throw error
+    err.throw();
+  });
 
-** Nodejs **
+</pre>
 
+<strong>Nodejs</strong>
 
-wzxhzdk:3
+<pre class="inline-code">
 
+  const responseBulkRequest = kintoneBulkRequest
+    .addRecord(/* [Args]*/)
+    .addRecords(/* [Args]*/)
+    .updateRecords(/* [Args]*/)
+    .deleteRecords()
+    .execute();
+
+  responseBulkRequest.then((resp) => {
+    console.log(resp);
+  }).catch((err) => {
+    // write error to console
+    console.log(err.get());
+    // Throw error
+    err.throw();
+  });
+
+</pre>
 
 </details>
 

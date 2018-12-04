@@ -603,16 +603,51 @@
 <details class="tab-container" open>
 <Summary>Init Connection module</Summary>
 
-** Javascript **
+<strong>Javascript</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:0
+    // Define Authentication object
+    var kintoneAuth = new kintoneJSSDK.Auth();
+    var username = '{your_user_name}';
+    var password = '{your_password}';
+    kintoneAuth.setPasswordAuth(username, password);
 
+    // Define connection that included auth
+    var kintoneConnection = new kintoneJSSDK.Connection( kintoneAuth);
 
-** Nodejs **
+    // Define connection that included guest space 
+    var guestSpaceID = '{guest_Space_ID}';
+    var kintoneConnectionWithGuestSpaceDemo =
+        new kintoneJSSDK.Connection(kintoneAuth, guestSpaceID);
 
-wzxhzdk:1
+    // Define connection without  auth
+    var guestSpaceID = '{guest_Space_ID}';
+    var kintoneConnectionWithGuestSpaceDemo =
+        new kintoneJSSDK.Connection(null, guestSpaceID);
 
+</pre>
+
+<strong>Nodejs</strong>
+<pre class="inline-code">
+
+    const kintone = require('kintone-js-sdk');
+
+    // Define Authentication object
+    let kintoneAuth = new kintone.Auth();
+    let username = '{your_user_name}';
+    let password = '{your_password}';
+    kintoneAuth.setPasswordAuth(username, password);
+
+    let myDomainName = 'my.domain.tld';
+    let kintoneConnection = new kintone.Connection(myDomainName, kintoneAuth);
+
+    // Define connection that included guest space
+    let guestSpaceID = /*{guestSpaceID}*/;
+    let kintoneConnectionWithGuestSpaceDemo =
+        new kintone.Connection(myDomainName, kintoneAuth, guestSpaceID);
+
+</pre>
 
 </details>
 
@@ -652,17 +687,25 @@
 <details class="tab-container" open>
 <Summary>Set header of the Connection</Summary>
 
-** Javascript **
+<strong>Javascript</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:2
+    var key = '{your_header_key}';
+    var value = '{your_header_value}';
+    kintoneConnection.setHeader(key, value);
 
+</pre>
 
-** Nodejs **
+<strong>Nodejs</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:3
+    let key = '{your_header_key}';
+    let value = '{your_header_value}';
+    kintoneConnection.setHeader(key, value);
 
+</pre>
 
 </details>
 
@@ -701,17 +744,25 @@
 <details class="tab-container" open>
 <Summary>Set header of the Connection</Summary>
 
-** Javascript **
+<strong>Javascript</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:4
+    var key = '{your_option_key}';
+    var value = '{your_option_value}';
+    kintoneConnection.addRequestOption(key, value);
 
+</pre>
 
-** Nodejs **
+<strong>Nodejs</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:5
+    let key = '{your_option_key}';
+    let value = '{your_option_value}';
+    kintoneConnection.addRequestOption(key, value);
 
+</pre>
 
 </details>
 
@@ -750,17 +801,25 @@
 <details class="tab-container" open>
 <Summary>Set proxy for the Connection</Summary>
 
-** Javascript **
+<strong>Javascript</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:6
+    var proxyHost = '{your_proxy_host}';
+    var proxyPort = '{your_proxy_post}';
+    kintoneConnection.setProxy(proxyHost, proxyPort);
 
+</pre>
 
-** Nodejs **
+<strong>Nodejs</strong>
 
+<pre class="inline-code">
 
-wzxhzdk:7
+    const proxyHost = '{your_proxy_host}';
+    const proxyPort = '{your_proxy_post}';
+    kintoneConnection.setProxy(proxyHost, proxyPort);
 
+</pre>
 
 </details>
                 
